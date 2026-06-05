@@ -2,13 +2,9 @@
   "applinks": {
     "details": [
       {
-        "appIDs": [
-          "RBUL3TG7KH.com.livwell.alpha"
-        ],
-        "components": [
-          {
-            "/": "/"
-          }
+        "appID": "RBUL3TG7KH.com.livwell.alpha",
+        "paths": [
+          "*"
         ]
       }
     ]
