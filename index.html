@@ -363,8 +363,8 @@
 
   <script>
     const APP_STORE_URL = 'https://apps.apple.com/in/app/id1509195628';
-    // Deep link scheme — adjust if your app has a custom URL scheme
-    const DEEP_LINK = 'livwell://open';
+    // Registered URL scheme from app's Info.plist
+    const DEEP_LINK = 'mylivwell://';
 
     const statusEl = document.getElementById('status-text');
     const ctaWrap  = document.getElementById('cta-wrap');
@@ -411,21 +411,39 @@
       `;
     }
 
-    // Universal link triggers the app if installed.
-    // For the landing page we try to detect if iOS, then show appropriate CTA.
-    // True install detection isn't possible via JS — Universal Links handle it natively.
+    // Silently try to open the app via a hidden iframe (no Safari error dialog).
+    // If app is not installed, iframe fails silently and we fall back to App Store.
+    function tryOpenApp() {
+      // Create hidden iframe — Safari won't show error dialog for iframe navigations
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      var appOpened = false;
+
+      // Listen for page losing focus = app opened successfully
+      window.addEventListener('blur', function() { appOpened = true; }, { once: true });
+
+      // Try the custom URL scheme via iframe
+      iframe.src = DEEP_LINK;
+
+      // After 1.8s, if app didn't open, go to App Store
+      setTimeout(function() {
+        document.body.removeChild(iframe);
+        if (!appOpened) {
+          window.location = APP_STORE_URL;
+        }
+      }, 1800);
+    }
+
     if (isIOS()) {
-      // On iOS: Universal Links handle it automatically when tapped from a link.
-      // From direct browser navigation we show "Open app" which tries the deep link,
-      // and falls back to App Store after 1.5s if app isn't installed.
       renderOpenApp();
 
       document.addEventListener('click', function(e) {
         const btn = e.target.closest('#open-btn');
         if (!btn) return;
         e.preventDefault();
-        window.location = DEEP_LINK;
-        setTimeout(() => { window.location = APP_STORE_URL; }, 1500);
+        tryOpenApp();
       });
     } else {
       renderNonIOS();
