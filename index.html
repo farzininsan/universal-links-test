@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LivWell — Live Better Every Day</title>
   <meta name="description" content="Your personal wellness companion. Track habits, build routines, and live your best life." />
-
-  <!-- Apple Universal Links meta (optional, reinforces smart banner) -->
   <meta name="apple-itunes-app" content="app-id=1509195628" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,7 +40,6 @@
       overflow-x: hidden;
     }
 
-    /* ── noise texture overlay ── */
     body::before {
       content: '';
       position: fixed;
@@ -52,7 +49,6 @@
       z-index: 0;
     }
 
-    /* ── layout ── */
     .wrapper {
       position: relative;
       z-index: 1;
@@ -67,223 +63,50 @@
       gap: 0;
     }
 
-    /* ── decorative ring ── */
-    .ring {
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .ring-1 {
-      width: 500px; height: 500px;
-      top: -160px; right: -180px;
-      background: radial-gradient(circle, rgba(74,124,95,0.08) 0%, transparent 70%);
-    }
-    .ring-2 {
-      width: 400px; height: 400px;
-      bottom: -120px; left: -150px;
-      background: radial-gradient(circle, rgba(196,100,58,0.07) 0%, transparent 70%);
-    }
+    .ring { position: fixed; border-radius: 50%; pointer-events: none; z-index: 0; }
+    .ring-1 { width: 500px; height: 500px; top: -160px; right: -180px; background: radial-gradient(circle, rgba(74,124,95,0.08) 0%, transparent 70%); }
+    .ring-2 { width: 400px; height: 400px; bottom: -120px; left: -150px; background: radial-gradient(circle, rgba(196,100,58,0.07) 0%, transparent 70%); }
 
-    /* ── logo / wordmark ── */
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 56px;
-    }
-    .logo-mark {
-      width: 36px; height: 36px;
-      background: var(--sage);
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .logo { display: flex; align-items: center; gap: 10px; margin-bottom: 56px; }
+    .logo-mark { width: 36px; height: 36px; background: var(--sage); border-radius: 10px; display: flex; align-items: center; justify-content: center; }
     .logo-mark svg { display: block; }
-    .logo-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      color: var(--ink);
-    }
+    .logo-text { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; letter-spacing: -0.3px; color: var(--ink); }
 
-    /* ── hero text ── */
-    .eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--sage);
-      margin-bottom: 16px;
-      text-align: center;
-    }
+    .eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--sage); margin-bottom: 16px; text-align: center; }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(36px, 10vw, 52px);
-      font-weight: 700;
-      line-height: 1.1;
-      text-align: center;
-      color: var(--ink);
-      margin-bottom: 20px;
-    }
-    h1 em {
-      font-style: italic;
-      color: var(--sage);
-    }
+    h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 10vw, 52px); font-weight: 700; line-height: 1.1; text-align: center; color: var(--ink); margin-bottom: 20px; }
+    h1 em { font-style: italic; color: var(--sage); }
 
-    .subtitle {
-      font-size: 16px;
-      line-height: 1.65;
-      color: var(--ink-muted);
-      text-align: center;
-      margin-bottom: 48px;
-      max-width: 380px;
-    }
+    .subtitle { font-size: 16px; line-height: 1.65; color: var(--ink-muted); text-align: center; margin-bottom: 48px; max-width: 380px; }
 
-    /* ── status badge ── */
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--warm-white);
-      border: 1px solid rgba(74,124,95,0.2);
-      border-radius: 100px;
-      padding: 6px 14px 6px 10px;
-      font-size: 13px;
-      color: var(--ink-muted);
-      margin-bottom: 48px;
-      opacity: 0;
-      animation: fadeSlideUp 0.6s 0.3s ease forwards;
-    }
-    .status-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--sage);
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(0.8); }
-    }
+    .status-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--warm-white); border: 1px solid rgba(74,124,95,0.2); border-radius: 100px; padding: 6px 14px 6px 10px; font-size: 13px; color: var(--ink-muted); margin-bottom: 48px; opacity: 0; animation: fadeSlideUp 0.6s 0.3s ease forwards; }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sage); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.8); } }
 
-    /* ── CTA button ── */
-    .cta-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-      width: 100%;
-      max-width: 320px;
-      opacity: 0;
-      animation: fadeSlideUp 0.6s 0.5s ease forwards;
-    }
+    .cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; max-width: 320px; opacity: 0; animation: fadeSlideUp 0.6s 0.5s ease forwards; }
 
-    .btn-primary {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 16px 28px;
-      background: var(--ink);
-      color: var(--cream);
-      border: none;
-      border-radius: 14px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.15s ease, background 0.2s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
+    .btn-primary { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 28px; background: var(--ink); color: var(--cream); border: none; border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 500; cursor: pointer; text-decoration: none; transition: transform 0.15s ease, background 0.2s ease; -webkit-tap-highlight-color: transparent; }
     .btn-primary:hover { background: var(--sage-dark); transform: translateY(-1px); }
     .btn-primary:active { transform: scale(0.98); }
-
     .btn-primary svg { flex-shrink: 0; }
 
-    .btn-store {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 14px 28px;
-      background: transparent;
-      color: var(--ink-muted);
-      border: 1px solid rgba(26,23,20,0.15);
-      border-radius: 14px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 400;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.15s ease;
-      -webkit-tap-highlight-color: transparent;
-    }
+    .btn-store { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 14px 28px; background: transparent; color: var(--ink-muted); border: 1px solid rgba(26,23,20,0.15); border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400; cursor: pointer; text-decoration: none; transition: all 0.15s ease; -webkit-tap-highlight-color: transparent; }
     .btn-store:hover { border-color: rgba(26,23,20,0.3); color: var(--ink); }
 
-    /* ── features strip ── */
-    .features {
-      display: flex;
-      gap: 20px;
-      margin-top: 64px;
-      opacity: 0;
-      animation: fadeSlideUp 0.6s 0.7s ease forwards;
-    }
-    .feature {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      text-align: center;
-      flex: 1;
-    }
-    .feature-icon {
-      width: 40px; height: 40px;
-      border-radius: 12px;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .features { display: flex; gap: 20px; margin-top: 64px; opacity: 0; animation: fadeSlideUp 0.6s 0.7s ease forwards; }
+    .feature { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; flex: 1; }
+    .feature-icon { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
     .feature-icon.sage { background: var(--sage-light); }
     .feature-icon.terra { background: var(--terracotta-light); }
     .feature-icon.gold { background: var(--gold-light); }
+    .feature-label { font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
 
-    .feature-label {
-      font-size: 12px;
-      color: var(--ink-muted);
-      line-height: 1.4;
-    }
+    .divider { width: 1px; height: 24px; background: rgba(26,23,20,0.1); align-self: center; }
 
-    /* ── divider ── */
-    .divider {
-      width: 1px;
-      height: 24px;
-      background: rgba(26,23,20,0.1);
-      align-self: center;
-    }
+    .footer { margin-top: 56px; padding-bottom: 32px; text-align: center; font-size: 12px; color: var(--ink-faint); opacity: 0; animation: fadeSlideUp 0.6s 0.9s ease forwards; }
 
-    /* ── footer ── */
-    .footer {
-      margin-top: 56px;
-      padding-bottom: 32px;
-      text-align: center;
-      font-size: 12px;
-      color: var(--ink-faint);
-      opacity: 0;
-      animation: fadeSlideUp 0.6s 0.9s ease forwards;
-    }
-
-    /* ── animations ── */
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-animate {
-      opacity: 0;
-      animation: fadeSlideUp 0.7s 0.1s ease forwards;
-    }
+    @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-animate { opacity: 0; animation: fadeSlideUp 0.7s 0.1s ease forwards; }
   </style>
 </head>
 <body>
@@ -293,10 +116,9 @@
 
   <div class="wrapper">
 
-    <!-- Logo -->
     <div class="logo hero-animate">
       <div class="logo-mark">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
           <path d="M10 3C10 3 6 6.5 6 10.5C6 12.985 7.79 15 10 15C12.21 15 14 12.985 14 10.5C14 6.5 10 3 10 3Z" fill="white" fill-opacity="0.9"/>
           <path d="M10 8V17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
           <path d="M8 12L10 10L12 12" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -305,25 +127,17 @@
       <span class="logo-text">LivWell</span>
     </div>
 
-    <!-- Status -->
     <div class="status-badge">
       <div class="status-dot"></div>
       <span id="status-text">Checking your device…</span>
     </div>
 
-    <!-- Hero -->
     <p class="eyebrow hero-animate">Your Wellness Journey</p>
     <h1 class="hero-animate">Live <em>better</em>,<br/>every single day.</h1>
-    <p class="subtitle hero-animate">
-      Build habits that stick, track your well-being, and unlock a healthier version of yourself — one day at a time.
-    </p>
+    <p class="subtitle hero-animate">Build habits that stick, track your well-being, and unlock a healthier version of yourself — one day at a time.</p>
 
-    <!-- CTA -->
-    <div class="cta-wrap" id="cta-wrap">
-      <!-- Filled dynamically by JS -->
-    </div>
+    <div class="cta-wrap" id="cta-wrap"></div>
 
-    <!-- Features -->
     <div class="features">
       <div class="feature">
         <div class="feature-icon sage">
@@ -362,85 +176,71 @@
   </div>
 
   <script>
-    const APP_STORE_URL = 'https://apps.apple.com/in/app/id1509195628';
-    // Registered URL scheme from app's Info.plist
-    const DEEP_LINK = 'mylivwell://';
+    var APP_STORE_URL = 'https://apps.apple.com/in/app/id1509195628';
+    var DEEP_LINK = 'mylivwell://';
 
-    const statusEl = document.getElementById('status-text');
-    const ctaWrap  = document.getElementById('cta-wrap');
+    var statusEl = document.getElementById('status-text');
+    var ctaWrap  = document.getElementById('cta-wrap');
 
     function isIOS() {
       return /iphone|ipad|ipod/i.test(navigator.userAgent);
     }
 
     function renderOpenApp() {
-      statusEl.textContent = '✓ App detected on this device';
-      ctaWrap.innerHTML = `
-        <a href="${DEEP_LINK}" class="btn-primary" id="open-btn">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 3C10 3 6 6.5 6 10.5C6 12.985 7.79 15 10 15C12.21 15 14 12.985 14 10.5C14 6.5 10 3 10 3Z" fill="currentColor" fill-opacity="0.85"/>
-          </svg>
-          Open LivWell App
-        </a>
-        <a href="${APP_STORE_URL}" class="btn-store">
-          View on App Store
-        </a>
-      `;
-    }
-
-    function renderGetApp() {
-      statusEl.textContent = 'Available on the App Store';
-      ctaWrap.innerHTML = `
-        <a href="${APP_STORE_URL}" class="btn-primary">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M14.5 10.5C14.49 8.88 15.3 7.64 16.94 6.73C16.03 5.44 14.67 4.73 12.88 4.6C11.19 4.47 9.33 5.59 8.67 5.59C7.97 5.59 6.31 4.64 5.02 4.64C2.35 4.68 0.5 6.75 0.5 10.16C0.5 11.26 0.7 12.4 1.1 13.57C1.64 15.14 3.59 19.12 5.62 19.05C6.84 19.02 7.7 18.19 9.27 18.19C10.79 18.19 11.59 19.05 12.96 19.05C15.01 19.02 16.78 15.39 17.3 13.81C14.67 12.56 14.5 10.55 14.5 10.5ZM11.82 3.1C13.17 1.51 13.03 0.06 12.98 0.5C11.08 0.15 9.3 1.07 8.3 2.44C7.39 3.7 7.41 5.04 7.45 5.5C9.5 5.5 10.55 4.6 11.82 3.1Z" fill="currentColor"/>
-          </svg>
-          Download on App Store
-        </a>
-        <span style="font-size:13px; color:var(--ink-faint); text-align:center;">Free to download · iPhone &amp; iPad</span>
-      `;
+      statusEl.textContent = 'App available on this device';
+      ctaWrap.innerHTML =
+        '<button class="btn-primary" id="open-btn">' +
+          '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 3C10 3 6 6.5 6 10.5C6 12.985 7.79 15 10 15C12.21 15 14 12.985 14 10.5C14 6.5 10 3 10 3Z" fill="currentColor" fill-opacity="0.85"/></svg>' +
+          'Open LivWell App' +
+        '</button>' +
+        '<a href="' + APP_STORE_URL + '" class="btn-store">View on App Store</a>';
     }
 
     function renderNonIOS() {
-      statusEl.textContent = 'Available on iPhone &amp; iPad';
-      ctaWrap.innerHTML = `
-        <a href="${APP_STORE_URL}" class="btn-primary">
-          Get LivWell on iOS
-        </a>
-        <span style="font-size:13px; color:var(--ink-faint); text-align:center;">Scan or open on your iPhone</span>
-      `;
+      statusEl.textContent = 'Available on iPhone & iPad';
+      ctaWrap.innerHTML =
+        '<a href="' + APP_STORE_URL + '" class="btn-primary">Get LivWell on iOS</a>' +
+        '<span style="font-size:13px;color:var(--ink-faint);text-align:center;">Open on your iPhone</span>';
     }
 
-    // Silently try to open the app via a hidden iframe (no Safari error dialog).
-    // If app is not installed, iframe fails silently and we fall back to App Store.
     function tryOpenApp() {
-      // Create hidden iframe — Safari won't show error dialog for iframe navigations
-      var iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      document.body.appendChild(iframe);
-
+      var fallbackTimer;
       var appOpened = false;
 
-      // Listen for page losing focus = app opened successfully
-      window.addEventListener('blur', function() { appOpened = true; }, { once: true });
-
-      // Try the custom URL scheme via iframe
-      iframe.src = DEEP_LINK;
-
-      // After 1.8s, if app didn't open, go to App Store
-      setTimeout(function() {
-        document.body.removeChild(iframe);
-        if (!appOpened) {
-          window.location = APP_STORE_URL;
+      // visibilitychange: when app opens, Safari tabs go hidden
+      function onVisibilityChange() {
+        if (document.hidden) {
+          appOpened = true;
+          clearTimeout(fallbackTimer);
+          document.removeEventListener('visibilitychange', onVisibilityChange);
         }
-      }, 1800);
+      }
+      document.addEventListener('visibilitychange', onVisibilityChange);
+
+      // pagehide also fires when leaving for another app
+      function onPageHide() {
+        appOpened = true;
+        clearTimeout(fallbackTimer);
+      }
+      window.addEventListener('pagehide', onPageHide, { once: true });
+
+      // Navigate to custom scheme — if app installed, iOS opens it
+      // If not installed, Safari shows error briefly then we redirect to App Store
+      window.location.href = DEEP_LINK;
+
+      // Fallback: if still here after 2.5s, app not installed
+      fallbackTimer = setTimeout(function() {
+        document.removeEventListener('visibilitychange', onVisibilityChange);
+        if (!appOpened) {
+          window.location.href = APP_STORE_URL;
+        }
+      }, 2500);
     }
 
     if (isIOS()) {
       renderOpenApp();
-
-      document.addEventListener('click', function(e) {
-        const btn = e.target.closest('#open-btn');
+      document.getElementById('cta-wrap').addEventListener('click', function(e) {
+        var btn = e.target.closest('#open-btn');
         if (!btn) return;
         e.preventDefault();
         tryOpenApp();
